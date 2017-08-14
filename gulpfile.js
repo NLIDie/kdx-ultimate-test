@@ -19,13 +19,13 @@ const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
-const templatePolyfill = require('template-polyfill');
 
 gulp.task("copy", () => {
   gulp.src([
     "fonts/**/*.{woff,woff2}",
     "img/**",
-    "*.html"
+    "*.html",
+    "js/polyfill/*.js"
   ], {
     base: "."
   })
