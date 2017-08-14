@@ -40,7 +40,52 @@
     return carElement;
   };
 
+  const createNewOrderCar = () => {
+    const addingForm = document.querySelector('.form'),
+          inputName = addingForm.querySelector('#input-name'),
+          inputYear = addingForm.querySelector('#input-year'),
+          inputPrice = addingForm.querySelector('#input-price'),
+          inputDescription = addingForm.querySelector('#input-description'),
+          radiosName = addingForm.querySelectorAll('.form__input-radio[name="color"]'),
+          selectStatus = addingForm.querySelector('#select-status');
+
+
+    const checkRadio = (elems) => {
+      for (let i = 0; i < elems.length; i++) {
+        if (elems[i].checked) {
+          return elems[i];
+        }
+      }
+    };
+
+    orderCarLastID++;
+
+    const orderCar = {
+      id: orderCarLastID,
+      title: inputName.value,
+      description: inputDescription.value,
+      year: inputYear.value,
+      color: checkRadio(radiosName).value,
+      status: selectStatus.value,
+      price: inputPrice.value
+    };
+
+    return orderCar;
+  };
+
+  const onAddNewOrderCar = (evt) => {
+    const fragment = document.createDocumentFragment(),
+          newOrderCar = createNewOrderCar();
+
+    fragment.appendChild(renderOrderCar(newOrderCar));
+    tableOrderCarList.appendChild(fragment);
+
+    evt.preventDefault();
+  };
+
   const successHandler = (orderCar) => {
+    window.orderCarLastID = orderCar.length;
+
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < orderCar.length; i++) {
@@ -57,6 +102,8 @@
     node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
   };
+
+  document.querySelector('.btn--submit').addEventListener('click', onAddNewOrderCar);
 
   load(successHandler, errorHandler);
 })();

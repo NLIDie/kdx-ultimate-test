@@ -19,7 +19,7 @@
     });
 
     xhr.addEventListener('error', (evt) => {
-      onError('Произощла ошибка соединения');
+      onError('Произошла ошибка соединения');
     });
 
     xhr.addEventListener('timeout', (evt) => {
