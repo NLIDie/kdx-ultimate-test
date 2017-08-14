@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Captain Quack</title>
+  <script>
+    // Shim so we can style in IE6/7/8
+    document.createElement('template');
+  </script>
+</head>
+
+<body class="page-body">
+
+  <header class="page-header">
+    <div class="page-wrapper">
+
+      <div class="page-logo">
+        <img src="img/page-logo.png" alt="CAPTAIN QUACK" width="494" height="104">
+      </div>
+
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="page-wrapper">
+
+      <h2 class="page-title">&iexcl;Ay caramba!</h2>
+
+      <form class="form" action="#" method="POST">
+        <div class="form__inputs-wrapper">
+          <label class="form__label form__label--name">
+            <input class="form__input" type="text" placeholder="Название">
+            <span class="form__input-title">Название</span>
+          </label>
+          <label class="form__label form__label--year">
+            <input class="form__input" type="text" placeholder="Год">
+            <span class="form__input-title">Год</span>
+          </label>
+          <label class="form__label form__label--price">
+            <input class="form__input" type="text" placeholder="Цена">
+            <span class="form__input-title">Цена</span>
+          </label>
+          <label class="form__label form__label--description">
+            <input class="form__input" type="text" placeholder="Описание">
+            <span class="form__input-title">Описание</span>
+          </label>
+        </div>
+
+        <div class="form__label form__label--radio-btns">
+
+          <div class="form__radio-wrapper">
+          <span class="form__group-name">Цвет</span>
+          <label class="form__label form__label--radio">
+            <input class="form__input-radio" type="radio" value="white" name="color" checked="checked">
+            <span class="form__custom-radio indication-circle indication-circle--white"></span>
+          </label>
+
+          <label class="form__label form__label--radio">
+            <input class="form__input-radio" type="radio" value="black" name="color">
+            <span class="form__custom-radio indication-circle indication-circle--black"></span>
+          </label>
+
+          <label class="form__label form__label--radio">
+            <input class="form__input-radio" type="radio" value="" name="color">
+            <span class="form__custom-radio indication-circle indication-circle--grey"></span>
+          </label>
+
+          <label class="form__label form__label--radio">
+            <input class="form__input-radio" type="radio" value="red" name="color">
+            <span class="form__custom-radio indication-circle indication-circle--red"></span>
+          </label>
+
+          <label class="form__label form__label--radio">
+            <input class="form__input-radio" type="radio" value="green" name="color">
+            <span class="form__custom-radio indication-circle indication-circle--green"></span>
+          </label>
+          </div>
+
+        </div>
+
+        <label class="form__label form__label--select">
+          <select class="form__select" name="status">
+            <option class="form__select-option" value="" selected="selected" disabled="disabled">Статус:</option>
+            <option class="form__select-option" value="in_stock">В наличии</option>
+            <option class="form__select-option" value="pending">Ожидается</option>
+            <option class="form__select-option" value="out_of_stock">Нет в наличии</option>
+          </select>
+        </label>
+
+        <button class="btn  btn--submit" type="submit">
+          Отправить
+          <svg class="btn__svg" xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 10 14">
+            <path d="M.99 10.85L4.87 7 1 3.15 3.17.98l5.84 5.78-.24.24.24.24L3.17 13z"></path>
+          </svg>
+        </button>
+      </form>
+
+      <table class="table" id="table-order-car">
+        <caption class="table__caption">Автомобили в наличии</caption>
+        <thead class="table__header">
+          <tr class="table__item-key">
+            <th class="">Название</th>
+            <th class="">Год</th>
+            <th>Цвет</th>
+            <th>Статус</th>
+            <th colspan="3">Цена</th>
+          </tr>
+        </thead>
+      </table>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="page-wrapper  page-wrapper--footer">
+
+      <p class="page-footer__copyright">&copy; 2015 Captain quack</p>
+      <blockquote class="page-footer__quote">Десница тысячелетия и моллюск!</blockquote>
+
+    </div>
+  </footer>
+
+  <template id="template-order-car">
+    <tbody class="table__item">
+    <tr>
+      <td class="table__item-value table__item-value--title"></td>
+      <td class="table__item-value table__item-value--year"></td>
+      <td class="table__item-value table__item-value--color">
+        <span class="indication-circle"></span>
+      </td>
+      <td class="table__item-value table__item-value--status"></td>
+      <td class="table__item-value table__item-value--price"></td>
+      <td class="table__item-value table__item-value--btn"><button class="btn btn--delete" type="button">Удалить</button></td>
+      <td class="table__item-value table__item-value--description-mobile"></td>
+    </tr>
+
+    <tr>
+      <td class="table__item-value table__item-value--description" colspan="7"></td>
+    </tr>
+    </tbody>
+  </template>
+
+  <script src="js/script.min.js"></script>
+</body>
+</html>

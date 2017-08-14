@@ -1,0 +1,21 @@
+.page-title {
+  margin: 0 0 15px 0;
+
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 42px;
+  text-align: center;
+  color: #282d30;
+}
+
+@media (min-width: 720px) {
+  .page-title {
+    margin: 0 0 42px 0;
+
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 42px;
+    text-align: center;
+    color: #282d30;
+  }
+}

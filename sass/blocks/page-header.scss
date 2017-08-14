@@ -1,0 +1,11 @@
+.page-header {
+  min-height: 80px;
+
+  background-color: #282d30;
+}
+
+@media (min-width: 720px) {
+  .page-header {
+    min-height: 102px;
+  }
+}

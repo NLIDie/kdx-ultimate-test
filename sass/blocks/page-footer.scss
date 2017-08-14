@@ -1,0 +1,21 @@
+.page-footer {
+  box-sizing: border-box;
+  min-height: 102px;
+
+  font-weight: 300;
+  font-size: 11px;
+  text-align: center;
+  color: white;
+
+  background-color: #282d30;
+
+  &__copyright {
+    margin: 0;
+
+    text-transform: uppercase;
+  }
+
+  &__quote {
+    margin: 0;
+  }
+}

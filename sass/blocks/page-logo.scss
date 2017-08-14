@@ -1,0 +1,27 @@
+.page-logo {
+  margin-bottom: 30px;
+  padding-top: 10px;
+
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+
+   > img {
+    width: 297px;
+    height: 63px;
+    margin: 0;
+  }
+}
+
+
+@media (min-width: 720px) {
+  .page-logo {
+    margin-bottom: 67px;
+
+     > img {
+      width: 494px;
+      height: 104px;
+      margin-bottom: -110px;
+    }
+  }
+}

@@ -1,0 +1,138 @@
+.btn {
+  width: 48%;
+  min-height: 40px;
+
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 36px;
+  color: white;
+
+  background-color: #c4092f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: background 0.5s, color 0.5s;
+
+  &__svg {
+    transform: translateY(1px);
+
+    transition: fill 0.5s;
+
+    fill: white;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.75);
+
+    background-color: #a0001f;
+
+    & > .btn__svg {
+      fill: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.5);
+
+    background-color: #7a0018;
+
+    transition: background 0s, color 0s;
+
+    & > .btn__svg {
+      transition: fill 0s;
+
+      fill: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &--submit {
+    position: relative;
+  }
+
+  &--delete {
+    width: 73px;
+    height: 29px;
+    min-height: 30px;
+
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 25px;
+    color: white;
+
+    background-color: #282d30;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &:active {
+      color: rgba(255, 255, 255, 0.5);
+
+      background-color: #282d30;
+
+      transition: background 0s, color 0s;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .btn {
+    width: 32%;
+
+    border: none;
+    cursor: pointer;
+
+    transition: background 0.5s, color 0.5s;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+
+      background-color: #a0001f;
+    }
+
+    &:active {
+      color: rgba(255, 255, 255, 0.5);
+
+      background-color: #7a0018;
+
+      transition: background 0s, color 0s;
+    }
+
+    &--submit {
+      margin-top: 10px;
+    }
+
+    &--delete {
+      width: 100px;
+      min-height: 30px;
+
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 30px;
+      color: #8b9497;
+
+      background: none;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+
+        background-color: #282d30;
+      }
+
+      &:active {
+        color: rgba(255, 255, 255, 0.5);
+
+        background-color: #282d30;
+
+        transition: background 0s, color 0s;
+      }
+    }
+  }
+}
+
+#template-order-car {
+  display: none !important;
+}

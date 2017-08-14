@@ -1,0 +1,18 @@
+.page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+
+  &--footer {
+    padding-top: 36px;
+  }
+}
+
+@media (min-width: 720px) {
+  .page-wrapper {
+    padding: 0 10px;
+
+    &--footer {
+      padding-top: 36px;
+    }
+  }
+}
