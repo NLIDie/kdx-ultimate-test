@@ -7,13 +7,13 @@
   const orderCarTemplate = document.querySelector('#template-order-car').content;
 
   const addingForm = document.querySelector('.form'),
-    inputName = addingForm.querySelector('#input-name'),
-    inputYear = addingForm.querySelector('#input-year'),
-    inputPrice = addingForm.querySelector('#input-price'),
-    inputDescription = addingForm.querySelector('#input-description'),
-    radiosName = addingForm.querySelectorAll('.form__input-radio[name="color"]'),
-    selectStatus = addingForm.querySelector('#select-status'),
-    formInput = addingForm.querySelectorAll('.form__input');
+        inputName = addingForm.querySelector('#input-name'),
+        inputYear = addingForm.querySelector('#input-year'),
+        inputPrice = addingForm.querySelector('#input-price'),
+        inputDescription = addingForm.querySelector('#input-description'),
+        radiosName = addingForm.querySelectorAll('.form__input-radio[name="color"]'),
+        selectStatus = addingForm.querySelector('#select-status'),
+        formInputs = addingForm.querySelectorAll('.form__input');
 
   const renderOrderCar = (orderCar) => {
     const identificationOfStatus = (carStatus) => {
@@ -74,7 +74,7 @@
   };
 
   const isValidityInputs = (...inputsForm) => {
-    const inputsFormFilter = [].filter.call(inputsForm, (elem) => elem.value !== '');
+    const inputsFormFilter = [].filter.call(inputsForm, (elem) => elem.value);
 
     return inputsFormFilter.length;
   };
@@ -112,6 +112,16 @@
     node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
   };
+
+  [].forEach.call(formInputs, (elem) => {
+    elem.addEventListener('blur', (evt) => {
+      if (elem.value) {
+        elem.nextElementSibling.classList.add('form__input-title--show');
+      } else {
+        elem.nextElementSibling.classList.remove('form__input-title--show');
+      }
+    });
+  });
 
   addingForm.querySelector('.btn--submit').addEventListener('click', onAddNewOrderCar);
 
