@@ -6,6 +6,15 @@
   const tableOrderCarList = document.querySelector('#table-order-car');
   const orderCarTemplate = document.querySelector('#template-order-car').content;
 
+  const addingForm = document.querySelector('.form'),
+    inputName = addingForm.querySelector('#input-name'),
+    inputYear = addingForm.querySelector('#input-year'),
+    inputPrice = addingForm.querySelector('#input-price'),
+    inputDescription = addingForm.querySelector('#input-description'),
+    radiosName = addingForm.querySelectorAll('.form__input-radio[name="color"]'),
+    selectStatus = addingForm.querySelector('#select-status'),
+    formInput = addingForm.querySelectorAll('.form__input');
+
   const renderOrderCar = (orderCar) => {
     const identificationOfStatus = (carStatus) => {
       switch (carStatus) {
@@ -41,15 +50,6 @@
   };
 
   const createNewOrderCar = () => {
-    const addingForm = document.querySelector('.form'),
-          inputName = addingForm.querySelector('#input-name'),
-          inputYear = addingForm.querySelector('#input-year'),
-          inputPrice = addingForm.querySelector('#input-price'),
-          inputDescription = addingForm.querySelector('#input-description'),
-          radiosName = addingForm.querySelectorAll('.form__input-radio[name="color"]'),
-          selectStatus = addingForm.querySelector('#select-status');
-
-
     const checkRadio = (elems) => {
       for (let i = 0; i < elems.length; i++) {
         if (elems[i].checked) {
@@ -73,14 +73,24 @@
     return orderCar;
   };
 
+  const isValidityInputs = (...inputsForm) => {
+    const inputsFormFilter = [].filter.call(inputsForm, (elem) => elem.value !== '');
+
+    return inputsFormFilter.length;
+  };
+
   const onAddNewOrderCar = (evt) => {
     const fragment = document.createDocumentFragment(),
           newOrderCar = createNewOrderCar();
 
-    fragment.appendChild(renderOrderCar(newOrderCar));
-    tableOrderCarList.appendChild(fragment);
+    if (isValidityInputs(inputName, inputYear, inputPrice)) {
 
-    evt.preventDefault();
+      if (Number(inputYear.value) && Number(inputPrice.value)) {
+        fragment.appendChild(renderOrderCar(newOrderCar));
+        tableOrderCarList.appendChild(fragment);
+      }
+
+    }
   };
 
   const successHandler = (orderCar) => {
@@ -103,7 +113,7 @@
     document.body.insertAdjacentElement('afterbegin', node);
   };
 
-  document.querySelector('.btn--submit').addEventListener('click', onAddNewOrderCar);
+  addingForm.querySelector('.btn--submit').addEventListener('click', onAddNewOrderCar);
 
   load(successHandler, errorHandler);
 })();
