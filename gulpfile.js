@@ -56,11 +56,11 @@ gulp.task("style", () => {
 gulp.task('scripts', () => {
   gulp.src('js/*.js')
     .pipe(sourcemaps.init())
+      .pipe(concat('script.js'))
+      .pipe(gulp.dest('build/js'))
       .pipe(babel({
         presets: ['es2015']
       }))
-      .pipe(concat('script.js'))
-      .pipe(gulp.dest('build/js'))
       .pipe(uglify())
       .pipe(rename("script.min.js"))
       .pipe(sourcemaps.write('.'))

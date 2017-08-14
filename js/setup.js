@@ -2,6 +2,7 @@
 
 (() => {
   'use strict';
+
   const tableOrderCarList = document.querySelector('#table-order-car');
   const orderCarTemplate = document.querySelector('#template-order-car').content;
 
